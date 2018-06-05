@@ -42,10 +42,12 @@ libflush_init(libflush_session_t** session, libflush_session_args_t* args)
   (void) args;
 
   if (session == NULL) {
+    printf("Session is null\n");
     return false;
   }
 
   if ((*session = calloc(1, sizeof(libflush_session_t))) == NULL) {
+    printf("Calloc fail\n");
     return false;
   }
 
@@ -56,6 +58,7 @@ libflush_init(libflush_session_t** session, libflush_session_args_t* args)
 #if HAVE_PAGEMAP_ACCESS == 1
   (*session)->memory.pagemap = open("/proc/self/pagemap", O_RDONLY);
   if ((*session)->memory.pagemap == -1) {
+    printf("pagemap error\n");
     free(*session);
     return false;
   }
