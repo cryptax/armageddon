@@ -6,7 +6,7 @@ ANDROID_SYSROOT = ${ANDROID_NDK_PATH}/platforms/${ANDROID_PLATFORM}/arch-arm
 ANDROID_CC = ${ANDROID_TOOLCHAIN_BIN}/arm-linux-androideabi-gcc
 ANDROID_CC_FLAGS = --sysroot=${ANDROID_SYSROOT}
 
-ANDROID_INCLUDES = -I ${ANDROID_NDK_PATH}/platforms/${ANDROID_PLATFORM}/arch-arm/usr/include
+ANDROID_INCLUDES = -I ${ANDROID_NDK_PATH}/sysroot/usr/include -I ${ANDROID_NDK_PATH}/sysroot/usr/include/arm-linux-androideabi/
 ANDROID_CFLAGS = ${ANDROID_INCLUDES} -march=armv7-a -fPIE
 ANDROID_LDFLAGS = ${ANDROID_INCLUDES} -march=armv7-a -fPIE
 
